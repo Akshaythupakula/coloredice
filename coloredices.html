@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21 Small Circles in a Circular Container</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 540px;
+            height: 540px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            background-color: black;
+        }
+
+        .circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #3498db;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+    
+
+
+        .dice {
+  align-items: center;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-template-rows: auto;
+  justify-items: center;
+  padding: 2rem;
+  perspective: 600px;
+}
+.die-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: 6rem;
+  list-style-type: none;
+  transform-style: preserve-3d;
+  width: 6rem;
+}
+.even-roll {
+  transition: transform 3.5s ease-out;
+}
+.odd-roll {
+  transition: transform 1.25s ease-out;
+}
+.die-item {
+  background-color: #fefefe;
+  box-shadow: inset -0.35rem 0.35rem 0.75rem rgba(0, 0, 0, 0.3),
+    inset 0.5rem -0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+  display: grid;
+  grid-column: 1;
+  grid-row: 1;
+  grid-template-areas:
+    "one two three"
+    "four five six"
+    "seven eight nine";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  height: 100%;
+  padding: 1rem;
+  width: 100%;
+}
+.dot {
+  align-self: center;
+  background-color: #676767;
+  border-radius: 50%;
+  box-shadow: inset -0.15rem 0.15rem 0.25rem rgba(0, 0, 0, 0.5);
+  display: block;
+  height: 1.25rem;
+  justify-self: center;
+  width: 1.25rem;
+}
+.even-roll[data-roll="1"] {
+  transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg);
+}
+.even-roll[data-roll="2"] {
+  transform: rotateX(450deg) rotateY(720deg) rotateZ(360deg);
+}
+.even-roll[data-roll="3"] {
+  transform: rotateX(360deg) rotateY(630deg) rotateZ(360deg);
+}
+.even-roll[data-roll="4"] {
+  transform: rotateX(360deg) rotateY(810deg) rotateZ(360deg);
+}
+.even-roll[data-roll="5"] {
+  transform: rotateX(270deg) rotateY(720deg) rotateZ(360deg);
+}
+.even-roll[data-roll="6"] {
+  transform: rotateX(360deg) rotateY(900deg) rotateZ(360deg);
+}
+.odd-roll[data-roll="1"] {
+  transform: rotateX(-360deg) rotateY(-720deg) rotateZ(-360deg);
+}
+.odd-roll[data-roll="2"] {
+  transform: rotateX(-270deg) rotateY(-720deg) rotateZ(-360deg);
+}
+.odd-roll[data-roll="3"] {
+  transform: rotateX(-360deg) rotateY(-810deg) rotateZ(-360deg);
+}
+.odd-roll[data-roll="4"] {
+  transform: rotateX(-360deg) rotateY(-630deg) rotateZ(-360deg);
+}
+.odd-roll[data-roll="5"] {
+  transform: rotateX(-450deg) rotateY(-720deg) rotateZ(-360deg);
+}
+.odd-roll[data-roll="6"] {
+  transform: rotateX(-360deg) rotateY(-900deg) rotateZ(-360deg);
+}
+[data-side="1"] {
+  transform: rotate3d(0, 0, 0, 90deg) translateZ(4rem);
+  background-color: #ed710c;
+}
+[data-side="2"] {
+  transform: rotate3d(-1, 0, 0, 90deg) translateZ(4rem);
+  background-color: #b4e112;
+}
+[data-side="3"] {
+  transform: rotate3d(0, 1, 0, 90deg) translateZ(4rem);
+  background-color: #0cd16e;
+}
+[data-side="4"] {
+  transform: rotate3d(0, -1, 0, 90deg) translateZ(4rem);
+  background-color: #6e17d9;
+}
+[data-side="5"] {
+  transform: rotate3d(1, 0, 0, 90deg) translateZ(4rem);
+  background-color: #062f4a;
+}
+[data-side="6"] {
+  transform: rotate3d(1, 0, 0, 180deg) translateZ(4rem);
+  background-color: #f705f3;
+}
+[data-side="1"] .dot:nth-of-type(1) {
+  grid-area: five;
+}
+[data-side="2"] .dot:nth-of-type(1) {
+  grid-area: one;
+}
+[data-side="2"] .dot:nth-of-type(2) {
+  grid-area: nine;
+}
+[data-side="3"] .dot:nth-of-type(1) {
+  grid-area: one;
+}
+[data-side="3"] .dot:nth-of-type(2) {
+  grid-area: five;
+}
+[data-side="3"] .dot:nth-of-type(3) {
+  grid-area: nine;
+}
+[data-side="4"] .dot:nth-of-type(1) {
+  grid-area: one;
+}
+[data-side="4"] .dot:nth-of-type(2) {
+  grid-area: three;
+}
+[data-side="4"] .dot:nth-of-type(3) {
+  grid-area: seven;
+}
+[data-side="4"] .dot:nth-of-type(4) {
+  grid-area: nine;
+}
+[data-side="5"] .dot:nth-of-type(1) {
+  grid-area: one;
+}
+[data-side="5"] .dot:nth-of-type(2) {
+  grid-area: three;
+}
+[data-side="5"] .dot:nth-of-type(3) {
+  grid-area: five;
+}
+[data-side="5"] .dot:nth-of-type(4) {
+  grid-area: seven;
+}
+[data-side="5"] .dot:nth-of-type(5) {
+  grid-area: nine;
+}
+[data-side="6"] .dot:nth-of-type(1) {
+  grid-area: one;
+}
+[data-side="6"] .dot:nth-of-type(2) {
+  grid-area: three;
+}
+[data-side="6"] .dot:nth-of-type(3) {
+  grid-area: four;
+}
+[data-side="6"] .dot:nth-of-type(4) {
+  grid-area: six;
+}
+[data-side="6"] .dot:nth-of-type(5) {
+  grid-area: seven;
+}
+[data-side="6"] .dot:nth-of-type(6) {
+  grid-area: nine;
+}
+
+button {
+  align-self: center;
+  background-color: #efefef;
+  border: none;
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: 700;
+  justify-self: center;
+  padding: 0.5rem 1rem;
+}
+button:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .dice {
+    perspective: 1300px;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+    </div>
+    <!-- <div class="dice" onclick="dice()" id="dice">
+
+    </div> -->
+
+    <div class="dice">
+        <ol class="die-list even-roll" data-roll="1" id="die-1">
+          <li class="die-item" data-side="1">
+            
+          </li>
+          <li class="die-item" data-side="2">
+          
+          </li>
+          <li class="die-item" data-side="3">
+           
+          </li>
+          <li class="die-item" data-side="4">
+         
+          </li>
+          <li class="die-item" data-side="5">
+       
+          </li>
+          <li class="die-item" data-side="6" >
+            
+          </li>
+        </ol>
+      </div>
+      <button type="button" id="roll-button">Roll Dice</button>
+</body>
+<!-- Calculate and position the 7 circles in the center -->
+<script>
+    const container = document.querySelector('.container');
+    const centerX = container.offsetWidth / 2;
+    const centerY = container.offsetHeight / 2;
+    const centerRadius = 100; // Adjust as needed
+    const array = ['#ed710c', '#b4e112', '#0cd16e', '#6e17d9', '#062f4a', '#f705f3'];
+    let coloredice = ''
+    for (let i = 0; i < 1; i++) {
+        const randomIndex = Math.floor(Math.random() * array.length);
+        const randomElement = array[randomIndex];
+        const angle = (i / 1) * Math.PI * 2;
+        const x = centerX + 0 * Math.cos(angle);
+        const y = centerY + 0 * Math.sin(angle);
+
+        const circle = document.createElement('div');
+        circle.className = 'circle';
+        circle.style.left = `${x}px`;
+        circle.style.top = `${y}px`;
+        circle.addEventListener('click', () => {
+            circle.style.backgroundColor = randomElement;
+
+            if (randomElement == coloredice) {
+                circle.style.backgroundColor = '#ffff';
+                circle.style.display = 'none';
+                console.log(coloredice, 'color')
+
+            } else {
+                circle.addEventListener('mouseleave', () => {
+                    circle.style.backgroundColor = '#3498db';
+                    console.log(coloredice, 'color')
+                });
+
+            }
+        });
+        container.appendChild(circle);
+    }
+
+    for (let i = 0; i < 7; i++) {
+        const randomIndex = Math.floor(Math.random() * array.length);
+        const randomElement = array[randomIndex];
+        const angle = (i / 7) * Math.PI * 2;
+        const x = centerX + centerRadius * Math.cos(angle);
+        const y = centerY + centerRadius * Math.sin(angle);
+
+        const circle = document.createElement('div');
+        circle.className = 'circle';
+        circle.style.left = `${x}px`;
+        circle.style.top = `${y}px`;
+        circle.addEventListener('click', () => {
+            circle.style.backgroundColor = randomElement;
+
+            if (randomElement == coloredice) {
+                circle.style.backgroundColor = '#ffff';
+                circle.style.display = 'none';
+                console.log(coloredice, 'color')
+
+            } else {
+                circle.addEventListener('mouseleave', () => {
+                    circle.style.backgroundColor = '#3498db';
+                    console.log(coloredice, 'color')
+                });
+
+            }
+        });
+
+
+        container.appendChild(circle);
+    }
+</script>
+<!-- Calculate and position the 21 circles around the center -->
+<script>
+    const radius = Math.min(centerX, centerY) - 50; // Adjust for circle radius and spacing
+
+    for (let i = 0; i < 14; i++) {
+        const randomIndex = Math.floor(Math.random() * array.length);
+        const randomElement = array[randomIndex];
+        const angle = (i / 14) * Math.PI * 2;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+
+        const circle = document.createElement('div');
+        circle.className = 'circle';
+        circle.style.left = `${x}px`;
+        circle.style.top = `${y}px`;
+
+        circle.addEventListener('click', () => {
+            circle.style.backgroundColor = randomElement;
+
+            if (randomElement == coloredice) {
+                circle.style.backgroundColor = '#ffff';
+                circle.style.display = 'none';
+                console.log(coloredice, 'color')
+
+            } else {
+                circle.addEventListener('mouseleave', () => {
+                    circle.style.backgroundColor = '#3498db';
+                    console.log(coloredice, 'color')
+                });
+
+            }
+        });
+
+
+        container.appendChild(circle);
+    }
+</script>
+<!-- dice animation -->
+<script>
+    function rollDice() {
+        const dice = [...document.querySelectorAll(".die-list")];
+        dice.forEach(die => {
+          toggleClasses(die);
+          die.dataset.roll = getRandomNumber(1, 6);
+        
+        });
+      }
+      
+      function toggleClasses(die) {
+        die.classList.toggle("odd-roll");
+        die.classList.toggle("even-roll");
+      }
+      
+      function getRandomNumber(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        let a =Math.floor(Math.random() * (max - min + 1)) + min
+        if(a==1){
+            coloredice='#ed710c'
+        }else if(a==2){
+            coloredice='#b4e112'
+        }else if(a==3){
+            coloredice='#0cd16e'
+        }else if(a==4){
+            coloredice='#6e17d9'
+        }else if(a==5){
+            coloredice='#062f4a'
+        }else{
+            coloredice='#f705f3'
+        }
+        return a;
+      }
+      
+      document.getElementById("roll-button").addEventListener("click", rollDice);
+      
+</script>
+
+</html>
