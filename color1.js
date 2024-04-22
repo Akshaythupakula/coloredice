@@ -2,7 +2,7 @@
 const container = document.querySelector('.container');
 const centerX = container.offsetWidth / 2;
 const centerY = container.offsetHeight / 2;
-const centerRadius = 100; // Adjust as needed
+const centerRadius = 70; // Adjust as needed
 const array = ['#ed710c', '#b4e112', '#0cd16e', '#6e17d9', '#062f4a', '#f705f3'];
 let coloredice = ''
 for (let i = 0; i < 1; i++) {
@@ -20,8 +20,12 @@ for (let i = 0; i < 1; i++) {
     circle.style.backgroundColor = randomElement;
 
     if (randomElement == coloredice) {
-      circle.style.backgroundColor = '#ffff';
-      circle.style.display = 'none';
+      circle.style.backgroundColor = coloredice;
+      circle.style.pointerEvents= 'none';
+      circle.addEventListener('mouseleave', () => {
+        circle.style.backgroundColor = coloredice;
+        console.log(coloredice, 'color')
+      });
       console.log(coloredice, 'color')
 
     } else {
@@ -50,8 +54,12 @@ for (let i = 0; i < 7; i++) {
     circle.style.backgroundColor = randomElement;
 
     if (randomElement == coloredice) {
-      circle.style.backgroundColor = '#ffff';
-      circle.style.display = 'none';
+      circle.style.backgroundColor = coloredice;
+      circle.style.pointerEvents= 'none';
+      circle.addEventListener('mouseleave', () => {
+        circle.style.backgroundColor = coloredice;
+        console.log(coloredice, 'color')
+      });
       console.log(coloredice, 'color')
 
     } else {
@@ -67,7 +75,7 @@ for (let i = 0; i < 7; i++) {
   container.appendChild(circle);
 }
 
-const radius = Math.min(centerX, centerY) - 50; // Adjust for circle radius and spacing
+const radius = Math.min(centerX, centerY) - 30; // Adjust for circle radius and spacing
 
 for (let i = 0; i < 14; i++) {
   const randomIndex = Math.floor(Math.random() * array.length);
