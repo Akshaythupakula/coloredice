@@ -2,46 +2,106 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+
+  margin-top: -100px;
   background-color: #f0f0f0;
 }
-@keyframes rotateBox {
-  from {
-  }
-  to {
-  }
+
+.scoreboard {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  box-shadow: 5px 15px 10px rgba(78, 123, 207, 0.5);
+
 }
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.player-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-left:10px;
+  margin-right: 10px;
+}
+
+.score {
+  font-size: 24px;
+}
+
+
+
+
 
 
 .container {
+  margin-top: 30px;
   max-width: 440px;
   height: 440px;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  border: 2px solid red;
-  background-color: rgb(238, 231, 231);
-  box-shadow: 50px 50px 100px rgba(0, 0, 0, 0.5);
- 
+  border: 2px solid rgb(177, 185, 222);
+  background-image: url('./circleg.gif');
+  background-size: 370px;
+  box-shadow:  1px 4px 0px 30px rgba(64, 14, 214, 0.968);
 
-  
+
 
 }
 
-.circle {
+/* .circle {
   width: 40px;
   height: 40px;
-  background-color:#3498db;
-  border: 2px solid red;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  background-color: #e0e4e7;
+  border: 2px solid rgb(0, 3, 12);
+  box-shadow: 5px 5px 10px rgba(12, 5, 224, 0.5);
   border-radius: 50%;
 
   position: absolute;
 
   transform: translate(3%, 6%);
-  
+
+} */
+.circle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e0e4e7;
+  box-shadow:  1px 4px 80px 5px rgba(64, 14, 214, 0.968);
 }
 
+.circle::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  background-color: #10718b;
+  box-shadow: 2px 4px 8px rgba(11, 0, 0, 0.968);
+
+  border-radius: 40%;
+  width:15px;
+  height: 15px;
+}
+
+.bottom img {
+  height: 150px;
+  width:400px;
+  margin-bottom: -200px;
+}
 
 
 
@@ -166,7 +226,7 @@ body {
   background-color: #f705f3;
 }
 
-
+/* 
 button {
   align-self: center;
   background-color: #efefef;
@@ -180,7 +240,7 @@ button {
 
 button:hover {
   cursor: pointer;
-}
+} */
 
 @media (max-width: 900px) {
   .dice {
@@ -194,9 +254,9 @@ button:hover {
     width: 376px;
   }
 
-.circle{
-  width: 30px;
-  height: 30px;
-  transform: translate(-50%, -50%);
-}
+  .circle {
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+  }
 }

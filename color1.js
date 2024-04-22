@@ -30,7 +30,7 @@ for (let i = 0; i < 1; i++) {
 
     } else {
       circle.addEventListener('mouseleave', () => {
-        circle.style.backgroundColor = '#3498db';
+        circle.style.backgroundColor = '#e0e4e7';
         console.log(coloredice, 'color')
       });
 
@@ -64,7 +64,7 @@ for (let i = 0; i < 7; i++) {
 
     } else {
       circle.addEventListener('mouseleave', () => {
-        circle.style.backgroundColor = '#3498db';
+        circle.style.backgroundColor = '#e0e4e7';
         console.log(coloredice, 'color')
       });
 
@@ -104,7 +104,7 @@ for (let i = 0; i < 14; i++) {
 
     } else {
       circle.addEventListener('mouseleave', () => {
-        circle.style.backgroundColor = '#3498db';
+        circle.style.backgroundColor = '#e0e4e7';
         console.log(coloredice, 'color')
       });
 
