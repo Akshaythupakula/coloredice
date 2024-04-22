@@ -2,7 +2,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
+background-image: url('./doodle.avif');
+background-repeat: no-repeat;
+background-size: cover;
   margin-top: -100px;
   background-color: #f0f0f0;
 }
