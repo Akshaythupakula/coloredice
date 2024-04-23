@@ -22,18 +22,27 @@ for (let i = 0; i < 1; i++) {
   circle.addEventListener('click', () => {
 
     if (chance == 0) {
+      document.getElementById("player1").style.backgroundColor = '#ed710c';
+
       if (randomElement == coloredice) {
         p1 = p1 + 1;
         console.log(p1, 'somthing 1')
         document.getElementById("player1").innerHTML = p1;
+
+
       }
       else {
         chance = 1
         console.log(chance, 'chance')
+        
+
       }
     }
     else if (chance == 1) {
+      document.getElementById("player2").style.backgroundColor = '#ed710c';
+
       circle.style.backgroundColor = randomElement;
+
 
       if (randomElement == coloredice) {
         p2 = p2 + 1;
@@ -41,10 +50,12 @@ for (let i = 0; i < 1; i++) {
         document.getElementById("player2").innerHTML = p2;
 
 
+
       }
       else {
         chance = 0
         console.log(chance, 'chance0')
+
       }
     }
 

@@ -2,20 +2,27 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-background-image: url('./doodle.avif');
-background-repeat: no-repeat;
-background-size: cover;
   margin-top: -100px;
   background-color: #f0f0f0;
 }
 
+.container-fluid{
+  background-image: url('./back.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:767px;
+}
 .scoreboard {
+  background-image: url('./scorebord.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
   height: 100px;
   display: flex;
+  color:#e0e4e7;
   justify-content: space-between;
   align-items: center;
   background-color: #f0f0f0;
-  border: 1px solid #ccc;
+  border: 1px solid #050000;
   padding: 10px;
   font-family: Arial, sans-serif;
   font-size: 18px;
@@ -27,13 +34,13 @@ background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
 }
 
 .player-name {
   font-weight: bold;
   margin-bottom: 5px;
-  margin-left:10px;
+  margin-left: 10px;
   margin-right: 10px;
 }
 
@@ -56,7 +63,7 @@ background-size: cover;
   border: 2px solid rgb(177, 185, 222);
   background-image: url('./circleg.gif');
   background-size: 370px;
-  box-shadow:  1px 4px 0px 30px rgba(64, 14, 214, 0.968);
+  box-shadow: 1px 4px 0px 30px rgba(64, 14, 214, 0.968);
 
 
 
@@ -81,7 +88,7 @@ background-size: cover;
   height: 40px;
   border-radius: 50%;
   background-color: #e0e4e7;
-  box-shadow:  1px 4px 80px 5px rgba(64, 14, 214, 0.968);
+  box-shadow: 1px 4px 80px 5px rgba(64, 14, 214, 0.968);
 }
 
 .circle::before {
@@ -95,15 +102,11 @@ background-size: cover;
   box-shadow: 2px 4px 8px rgba(11, 0, 0, 0.968);
 
   border-radius: 40%;
-  width:15px;
+  width: 15px;
   height: 15px;
 }
 
-.bottom img {
-  height: 150px;
-  width:400px;
-  margin-bottom: -200px;
-}
+
 
 
 
