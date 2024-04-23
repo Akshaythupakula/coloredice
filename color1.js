@@ -5,6 +5,9 @@ const centerY = container.offsetHeight / 2;
 const centerRadius = 70; // Adjust as needed
 const array = ['#ed710c', '#b4e112', '#0cd16e', '#6e17d9', '#062f4a', '#f705f3'];
 let coloredice = ''
+let p1 = 0;
+let p2 = 0;
+let chance = 0;
 for (let i = 0; i < 1; i++) {
   const randomIndex = Math.floor(Math.random() * array.length);
   const randomElement = array[randomIndex];
@@ -21,7 +24,7 @@ for (let i = 0; i < 1; i++) {
 
     if (randomElement == coloredice) {
       circle.style.backgroundColor = coloredice;
-      circle.style.pointerEvents= 'none';
+      circle.style.pointerEvents = 'none';
       circle.addEventListener('mouseleave', () => {
         circle.style.backgroundColor = coloredice;
         console.log(coloredice, 'color')
@@ -45,17 +48,38 @@ for (let i = 0; i < 7; i++) {
   const angle = (i / 7) * Math.PI * 2;
   const x = centerX + centerRadius * Math.cos(angle);
   const y = centerY + centerRadius * Math.sin(angle);
-
   const circle = document.createElement('div');
   circle.className = 'circle';
   circle.style.left = `${x}px`;
   circle.style.top = `${y}px`;
   circle.addEventListener('click', () => {
     circle.style.backgroundColor = randomElement;
+    if (chance == 0) {
+      if (randomElement == coloredice) {
+        p1 = p1 + 1;
+        console.log(p1, 'somthing 1')
+      }
+      else {
+        chance = 1
+        console.log(chance, 'chance')
+      }
+    }
+    else if (chance == 1) {
+      if (randomElement == coloredice) {
+        p2 = p2 + 1;
+        console.log(p2, 'somthing 2')
+      }
+      else {
+        chance = 0
+        console.log(chance, 'chance0')
+      }
+    }
+
+
 
     if (randomElement == coloredice) {
       circle.style.backgroundColor = coloredice;
-      circle.style.pointerEvents= 'none';
+      circle.style.pointerEvents = 'none';
       circle.addEventListener('mouseleave', () => {
         circle.style.backgroundColor = coloredice;
         console.log(coloredice, 'color')
@@ -95,7 +119,7 @@ for (let i = 0; i < 14; i++) {
 
     if (randomElement == coloredice) {
       circle.style.backgroundColor = coloredice;
-      circle.style.pointerEvents= 'none';
+      circle.style.pointerEvents = 'none';
       circle.addEventListener('mouseleave', () => {
         circle.style.backgroundColor = coloredice;
         console.log(coloredice, 'color')
