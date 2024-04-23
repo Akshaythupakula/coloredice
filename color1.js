@@ -20,7 +20,33 @@ for (let i = 0; i < 1; i++) {
   circle.style.left = `${x}px`;
   circle.style.top = `${y}px`;
   circle.addEventListener('click', () => {
-    circle.style.backgroundColor = randomElement;
+
+    if (chance == 0) {
+      if (randomElement == coloredice) {
+        p1 = p1 + 1;
+        console.log(p1, 'somthing 1')
+        document.getElementById("player1").innerHTML = p1;
+      }
+      else {
+        chance = 1
+        console.log(chance, 'chance')
+      }
+    }
+    else if (chance == 1) {
+      circle.style.backgroundColor = randomElement;
+
+      if (randomElement == coloredice) {
+        p2 = p2 + 1;
+        console.log(p2, 'somthing 2')
+        document.getElementById("player2").innerHTML = p2;
+
+
+      }
+      else {
+        chance = 0
+        console.log(chance, 'chance0')
+      }
+    }
 
     if (randomElement == coloredice) {
       circle.style.backgroundColor = coloredice;
@@ -58,6 +84,7 @@ for (let i = 0; i < 7; i++) {
       if (randomElement == coloredice) {
         p1 = p1 + 1;
         console.log(p1, 'somthing 1')
+        document.getElementById("player1").innerHTML = p1;
       }
       else {
         chance = 1
@@ -68,6 +95,9 @@ for (let i = 0; i < 7; i++) {
       if (randomElement == coloredice) {
         p2 = p2 + 1;
         console.log(p2, 'somthing 2')
+        document.getElementById("player2").innerHTML = p2;
+
+
       }
       else {
         chance = 0
@@ -114,7 +144,32 @@ for (let i = 0; i < 14; i++) {
   circle.style.top = `${y}px`;
 
   circle.addEventListener('click', () => {
+
     circle.style.backgroundColor = randomElement;
+    if (chance == 0) {
+      if (randomElement == coloredice) {
+        p1 = p1 + 1;
+        console.log(p1, 'somthing 1')
+        document.getElementById("player1").innerHTML = p1;
+      }
+      else {
+        chance = 1
+        console.log(chance, 'chance')
+      }
+    }
+    else if (chance == 1) {
+      if (randomElement == coloredice) {
+        p2 = p2 + 1;
+        console.log(p2, 'somthing 2')
+        document.getElementById("player2").innerHTML = p2;
+
+
+      }
+      else {
+        chance = 0
+        console.log(chance, 'chance0')
+      }
+    }
 
 
     if (randomElement == coloredice) {
