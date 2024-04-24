@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Menu</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-repeat: no-repeat;
+        background-size: 800px;
+        background-image: url('./../openingIMAGE.webp');
+    }
+    .container {
+        display: block;
+
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+        color: white;
+        font-weight: bold;
+        border: 3px solid #f1f1f1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 80%;
+        padding: 20px;
+        text-align: center;
+        max-width: 400px;
+        margin: 20px auto;
+        background-color: #eef4f935;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .button {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        margin-bottom: 10px;
+        background-color: #3498db;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    .button:hover {
+        background-color: #2980b9;
+    }
+    #startModal{
+        display: none;
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+        color: white;
+        font-weight: bold;
+        border: 3px solid #f1f1f1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 80%;
+        padding: 20px;
+        text-align: center;
+        max-width: 400px;
+        margin: 20px auto;
+        background-color: #eef4f935;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+</head>
+<body>
+<div class="container" id="startModal2">
+    <h1>Game Menu</h1>
+    <a href="#" class="button" id="startBtn">Start Game</a>
+    <a href="#" class="button" id="quitBtn">Quit Game</a>
+    <a href="#" class="button" id="howToPlayBtn">How to Play</a>
+    <button class="button" id="audioBtn">Mute Audio</button>
+</div>
+
+<div id="startModal" class="modal">
+    <div class="modal-content">
+        <h2>Choose Mode</h2>
+        <a href="../game/code/game.html" class="button" id="singlePlayerBtn">Single Player</a>
+        <a href="#" class="button" id="demoBtn">Demo</a>
+    </div>
+</div>
+
+<script>
+    const startBtn = document.getElementById('startBtn');
+    const quitBtn = document.getElementById('quitBtn');
+    const howToPlayBtn = document.getElementById('howToPlayBtn');
+    const startModal = document.getElementById('startModal');
+    const startModal2 = document.getElementById('startModal2');
+    const singlePlayerBtn = document.getElementById('singlePlayerBtn');
+    const demoBtn = document.getElementById('demoBtn');
+    const audioBtn = document.getElementById('audioBtn');
+    let isMuted = false;
+
+    startBtn.addEventListener('click', () => {
+        startModal.style.display = 'block';
+        startModal2.style.display = 'none';
+        
+        
+    });
+
+    quitBtn.addEventListener('click', () => {
+        // Implement quit functionality here
+        alert('Quit Game');
+    });
+
+    howToPlayBtn.addEventListener('click', () => {
+        // Implement how to play functionality here
+        alert('How to Play');
+    });
+
+    singlePlayerBtn.addEventListener('click', () => {
+        // Implement single player functionality here
+        alert('Single Player Mode');
+    });
+
+    demoBtn.addEventListener('click', () => {
+        // Implement demo functionality here
+        alert('Demo Mode');
+    });
+
+    audioBtn.addEventListener('click', () => {
+        isMuted = !isMuted;
+        if (isMuted) {
+            audioBtn.textContent = 'Unmute Audio';
+            // Logic to mute audio
+            // For example: audioElement.muted = true;
+        } else {
+            audioBtn.textContent = 'Mute Audio';
+            // Logic to unmute audio
+            // For example: audioElement.muted = false;
+        }
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === startModal) {
+            startModal.style.display = 'none';
+        }
+    });
+</script>
+</body>
+</html>

@@ -7,13 +7,15 @@ body {
 }
 
 .container-fluid{
-  background-image: url('./back.jpg');
+  background-image: url('../images/back.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height:767px;
+  height: 764px;
+  overflow: hidden;
+
 }
 .scoreboard {
-  background-image: url('./scorebord.jpg');
+  background-image: url('../images/scorebord.jpg');
   background-repeat: no-repeat;
   background-size:cover;
   height: 100px;
@@ -61,7 +63,7 @@ body {
   overflow: hidden;
   position: relative;
   border: 2px solid rgb(177, 185, 222);
-  background-image: url('./circleg.gif');
+  background-image: url('../images/circleg.gif');
   background-size: 370px;
   box-shadow: 1px 4px 0px 30px rgba(64, 14, 214, 0.968);
 
