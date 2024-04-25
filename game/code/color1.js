@@ -9,7 +9,7 @@ let p1 = 0;
 let p2 = 0;
 let chance = 0;
 let a;
-let count=0;
+let count;
 document.getElementById("player20").style.backgroundColor = '#ffff';
 document.getElementById("player10").style.backgroundColor = '#ed710c';
 for (let i = 0; i < 1; i++) {
@@ -25,54 +25,59 @@ for (let i = 0; i < 1; i++) {
   circle.style.top = `${y}px`;
 
   circle.addEventListener('click', () => {
-    circle.style.backgroundColor = randomElement;
-    if (chance == 0) {
-      document.getElementById("player10").style.backgroundColor = '#ed710c';
-      document.getElementById("player20").style.backgroundColor = '#ffff';
-      if (randomElement == coloredice) {
-        p1 = p1 + 1;
-        console.log(p1, 'somthing 1')
-        document.getElementById("player1").innerHTML = p1;
-      }
-      else {
-        chance = 1
-        console.log(chance, 'chance')
-        document.getElementById("player20").style.backgroundColor = '#ed710c';
-        document.getElementById("player10").style.backgroundColor = '#ffff';
-      }
-    }
-    else if (chance == 1) {
-      if (randomElement == coloredice) {
-        document.getElementById("player20").style.backgroundColor = '#ed710c';
-        document.getElementById("player10").style.backgroundColor = '#ffff';
-        p2 = p2 + 1;
-        console.log(p2, 'somthing 2')
-        document.getElementById("player2").innerHTML = p2;
-      }
-      else {
-        chance = 0
-        console.log(chance, 'chance0')
-        document.getElementById("player20").style.backgroundColor = '#ffff';
+    if (count === 0) {
+      console.log(count, 'its 7c')
+      count = 1
+      circle.style.backgroundColor = randomElement;
+      if (chance == 0) {
         document.getElementById("player10").style.backgroundColor = '#ed710c';
+        document.getElementById("player20").style.backgroundColor = '#ffff';
+        if (randomElement == coloredice) {
+          p1 = p1 + 1;
+          console.log(p1, 'somthing 1')
+          document.getElementById("player1").innerHTML = p1;
+        }
+        else {
+          chance = 1
+          console.log(chance, 'chance')
+          document.getElementById("player20").style.backgroundColor = '#ed710c';
+          document.getElementById("player10").style.backgroundColor = '#ffff';
+        }
+      }
+      else if (chance == 1) {
+        if (randomElement == coloredice) {
+          document.getElementById("player20").style.backgroundColor = '#ed710c';
+          document.getElementById("player10").style.backgroundColor = '#ffff';
+          p2 = p2 + 1;
+          console.log(p2, 'somthing 2')
+          document.getElementById("player2").innerHTML = p2;
+        }
+        else {
+          chance = 0
+          console.log(chance, 'chance0')
+          document.getElementById("player20").style.backgroundColor = '#ffff';
+          document.getElementById("player10").style.backgroundColor = '#ed710c';
+
+        }
+      }
+      if (randomElement == coloredice) {
+        circle.style.backgroundColor = coloredice;
+        circle.style.pointerEvents = 'none';
+        circle.addEventListener('mouseleave', () => {
+          circle.style.backgroundColor = coloredice;
+          console.log(coloredice, 'color')
+        });
+        console.log(coloredice, 'color')
+
+      } else {
+        circle.addEventListener('mouseleave', () => {
+          circle.style.backgroundColor = '#e0e4e7';
+          console.log(coloredice, 'color')
+        });
 
       }
     }
-    if (randomElement == coloredice) {
-      circle.style.backgroundColor = coloredice;
-      circle.style.pointerEvents = 'none';
-      circle.addEventListener('mouseleave', () => {
-        circle.style.backgroundColor = coloredice;
-        console.log(coloredice, 'color')
-      });
-      console.log(coloredice, 'color')
 
-    } else {
-      circle.addEventListener('mouseleave', () => {
-        circle.style.backgroundColor = '#e0e4e7';
-        console.log(coloredice, 'color')
-      });
-
-    }
   });
   container.appendChild(circle);
 }
@@ -89,54 +94,59 @@ for (let i = 0; i < 7; i++) {
   circle.style.top = `${y}px`;
 
   circle.addEventListener('click', () => {
-    circle.style.backgroundColor = randomElement;
-    if (chance == 0) {
-      document.getElementById("player10").style.backgroundColor = '#ed710c';
-      document.getElementById("player20").style.backgroundColor = '#ffff';
-      if (randomElement == coloredice) {
-        p1 = p1 + 1;
-        console.log(p1, 'somthing 1')
-        document.getElementById("player1").innerHTML = p1;
-      }
-      else {
-        chance = 1
-        console.log(chance, 'chance')
-        document.getElementById("player20").style.backgroundColor = '#ed710c';
-        document.getElementById("player10").style.backgroundColor = '#ffff';
-      }
-    }
-    else if (chance == 1) {
-      if (randomElement == coloredice) {
-        document.getElementById("player20").style.backgroundColor = '#ed710c';
-        document.getElementById("player10").style.backgroundColor = '#ffff';
-        p2 = p2 + 1;
-        console.log(p2, 'somthing 2')
-        document.getElementById("player2").innerHTML = p2;
-      }
-      else {
-        chance = 0
-        console.log(chance, 'chance0')
-        document.getElementById("player20").style.backgroundColor = '#ffff';
+    if (count === 0) {
+      console.log(count, 'its 7c')
+      count = 1
+      circle.style.backgroundColor = randomElement;
+      if (chance == 0) {
         document.getElementById("player10").style.backgroundColor = '#ed710c';
+        document.getElementById("player20").style.backgroundColor = '#ffff';
+        if (randomElement == coloredice) {
+          p1 = p1 + 1;
+          console.log(p1, 'somthing 1')
+          document.getElementById("player1").innerHTML = p1;
+        }
+        else {
+          chance = 1
+          console.log(chance, 'chance')
+          document.getElementById("player20").style.backgroundColor = '#ed710c';
+          document.getElementById("player10").style.backgroundColor = '#ffff';
+        }
+      }
+      else if (chance == 1) {
+        if (randomElement == coloredice) {
+          document.getElementById("player20").style.backgroundColor = '#ed710c';
+          document.getElementById("player10").style.backgroundColor = '#ffff';
+          p2 = p2 + 1;
+          console.log(p2, 'somthing 2')
+          document.getElementById("player2").innerHTML = p2;
+        }
+        else {
+          chance = 0
+          console.log(chance, 'chance0')
+          document.getElementById("player20").style.backgroundColor = '#ffff';
+          document.getElementById("player10").style.backgroundColor = '#ed710c';
+
+        }
+      }
+      if (randomElement == coloredice) {
+        circle.style.backgroundColor = coloredice;
+        circle.style.pointerEvents = 'none';
+        circle.addEventListener('mouseleave', () => {
+          circle.style.backgroundColor = coloredice;
+          console.log(coloredice, 'color')
+        });
+        console.log(coloredice, 'color')
+
+      } else {
+        circle.addEventListener('mouseleave', () => {
+          circle.style.backgroundColor = '#e0e4e7';
+          console.log(coloredice, 'color')
+        });
 
       }
     }
-    if (randomElement == coloredice) {
-      circle.style.backgroundColor = coloredice;
-      circle.style.pointerEvents = 'none';
-      circle.addEventListener('mouseleave', () => {
-        circle.style.backgroundColor = coloredice;
-        console.log(coloredice, 'color')
-      });
-      console.log(coloredice, 'color')
 
-    } else {
-      circle.addEventListener('mouseleave', () => {
-        circle.style.backgroundColor = '#e0e4e7';
-        console.log(coloredice, 'color')
-      });
-
-    }
   });
 
 
@@ -155,69 +165,77 @@ for (let i = 0; i < 14; i++) {
   circle.className = 'circle';
   circle.style.left = `${x}px`;
   circle.style.top = `${y}px`;
-
-  circle.addEventListener('click', () => {
-  circle.style.backgroundColor = randomElement;
-    if (chance == 0) {
-      document.getElementById("player10").style.backgroundColor = '#ed710c';
-      document.getElementById("player20").style.backgroundColor = '#ffff';
-      if (randomElement == coloredice) {
-        p1 = p1 + 1;
-        console.log(p1, 'somthing 1')
-        document.getElementById("player1").innerHTML = p1;
+  
+    console.log(count, 'count')
+    circle.addEventListener('click', () => {
+      if (count === 0) {
+        console.log(count, 'its 7c')
+        count = 1
+        circle.style.backgroundColor = randomElement;
+        if (chance == 0) {
+          document.getElementById("player10").style.backgroundColor = '#ed710c';
+          document.getElementById("player20").style.backgroundColor = '#ffff';
+          if (randomElement == coloredice) {
+            p1 = p1 + 1;
+            console.log(p1, 'somthing 1')
+            document.getElementById("player1").innerHTML = p1;
+          }
+          else {
+            chance = 1
+            console.log(chance, 'chance')
+            document.getElementById("player20").style.backgroundColor = '#ed710c';
+            document.getElementById("player10").style.backgroundColor = '#ffff';
+          }
+        }
+        else if (chance == 1) {
+          if (randomElement == coloredice) {
+            document.getElementById("player20").style.backgroundColor = '#ed710c';
+            document.getElementById("player10").style.backgroundColor = '#ffff';
+            p2 = p2 + 1;
+            console.log(p2, 'somthing 2')
+            document.getElementById("player2").innerHTML = p2;
+          }
+          else {
+            chance = 0
+            console.log(chance, 'chance0')
+            document.getElementById("player20").style.backgroundColor = '#ffff';
+            document.getElementById("player10").style.backgroundColor = '#ed710c';
+  
+          }
+        }
+        if (randomElement == coloredice) {
+          circle.style.backgroundColor = coloredice;
+          circle.style.pointerEvents = 'none';
+          circle.addEventListener('mouseleave', () => {
+            circle.style.backgroundColor = coloredice;
+            console.log(coloredice, 'color')
+          });
+          console.log(coloredice, 'color')
+  
+        } else {
+          circle.addEventListener('mouseleave', () => {
+            circle.style.backgroundColor = '#e0e4e7';
+            console.log(coloredice, 'color')
+          });
+  
+        }
       }
-      else {
-        chance = 1
-        console.log(chance, 'chance')
-        document.getElementById("player20").style.backgroundColor = '#ed710c';
-        document.getElementById("player10").style.backgroundColor = '#ffff';
-      }
-    }
-    else if (chance == 1) {
-      if (randomElement == coloredice) {
-        document.getElementById("player20").style.backgroundColor = '#ed710c';
-        document.getElementById("player10").style.backgroundColor = '#ffff';
-        p2 = p2 + 1;
-        console.log(p2, 'somthing 2')
-        document.getElementById("player2").innerHTML = p2;
-      }
-      else {
-        chance = 0
-        console.log(chance, 'chance0')
-        document.getElementById("player20").style.backgroundColor = '#ffff';
-        document.getElementById("player10").style.backgroundColor = '#ed710c';
+  
+    });
+  
 
-      }
-    }
-    if (randomElement == coloredice) {
-      circle.style.backgroundColor = coloredice;
-      circle.style.pointerEvents = 'none';
-      circle.addEventListener('mouseleave', () => {
-        circle.style.backgroundColor = coloredice;
-        console.log(coloredice, 'color')
-      });
-      console.log(coloredice, 'color')
-
-    } else {
-      circle.addEventListener('mouseleave', () => {
-        circle.style.backgroundColor = '#e0e4e7';
-        console.log(coloredice, 'color')
-      });
-
-    }
-
-  });
   container.appendChild(circle);
 }
 
 function rollDice() {
   const dice = [...document.querySelectorAll(".die-list")];
-  count=count+1
+
   dice.forEach(die => {
     toggleClasses(die);
     die.dataset.roll = getRandomNumber(1, 6);
-
+    count = 0
   });
+  console.log(count, 'rolldice')
 
 }
 
